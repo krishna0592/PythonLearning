@@ -1,0 +1,1474 @@
+[{
+    "load_method": "insert-load",
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "RUN_LOG",
+        "dataset_id": "run_log_postgres",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "overwrite",
+        "truncate_flag": "true"
+    },
+    "run_order": 999,
+    "workflow_name": "nbrx"
+},
+{
+    "workflow_name": "nbrx",
+    "load_method": "insert-load",
+    "run_order": 1,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "nbrx_volume",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "nbrx",
+    "load_method": "insert-load",
+    "run_order": 2,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "nbrx_volume_prev",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "nbrx",
+    "load_method": "insert-load",
+    "run_order": 3,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "nbrx_vol_change",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "nbrx",
+    "load_method": "insert-load",
+    "run_order": 4,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "nbrx_volume_change_pct",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "nbrx",
+    "load_method": "insert-load",
+    "run_order": 5,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "daa_vol",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+},
+{
+    "workflow_name": "nbrx",
+    "load_method": "insert-load",
+    "run_order": 6,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "daa_vol_change",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+},
+{
+    "workflow_name": "nbrx",
+    "load_method": "insert-load",
+    "run_order": 7,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "daa_vol_change_pct",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+},
+{
+    "workflow_name": "nbrx",
+    "load_method": "insert-load",
+    "run_order": 8,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "top_20_writers_cont",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "nbrx",
+    "load_method": "insert-load",
+    "run_order": 9,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "mav_writers_cont",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "nbrx",
+    "load_method": "insert-load",
+    "run_order": 10,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "market_writers_cont",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "nbrx_share",
+    "load_method": "insert-load",
+    "run_order": 11,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "nbrx_volume_share_pct-nbrx_vol_share",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "nbrx_share",
+    "load_method": "insert-load",
+    "run_order": 12,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "nbrx_volume_share_pct-nbrx_vol_share_prev",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "nbrx_share",
+    "load_method": "insert-load",
+    "run_order": 13,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "new_writers",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "nbrx_share",
+    "load_method": "insert-load",
+    "run_order": 14,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "mrkt_access_share_pct_proc-mrkt_access_share_pct_final",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+},
+{
+    "workflow_name": "nbrx_share",
+    "load_method": "insert-load",
+    "run_order": 15,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "mrkt_access_share_pct_proc-mrkt_access_share_change_pct_final",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+},
+{
+    "workflow_name": "nbrx_share",
+    "load_method": "insert-load",
+    "run_order": 16,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "dispensed_claims_proc",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+},
+{
+    "workflow_name": "claims",
+    "load_method": "insert-load",
+    "run_order": 17,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "filled_claims_prdt",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+},
+{
+    "workflow_name": "claims",
+    "load_method": "insert-load",
+    "run_order": 18,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "submitted_claims_prdt",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+},
+
+{
+    "workflow_name": "speaker_program",
+    "load_method": "insert-load",
+    "run_order": 19,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "strategic_spend",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+}, {
+    "workflow_name": "speaker_program",
+    "load_method": "insert-load",
+    "run_order": 20,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "Total_Spend_Budget",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+}, {
+    "workflow_name": "speaker_program",
+    "load_method": "insert-load",
+    "run_order": 21,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "strategic_spend_per",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "speaker_program",
+    "load_method": "insert-load",
+    "run_order": 22,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "speaker_program_spent",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+}, {
+    "workflow_name": "speaker_program",
+    "load_method": "insert-load",
+    "run_order": 23,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "speaker_program_committed",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+}, {
+    "workflow_name": "speaker_program",
+    "load_method": "insert-load",
+    "run_order": 24,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "speaker_program_remaining",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+}, {
+    "workflow_name": "speaker_program",
+    "load_method": "insert-load",
+    "run_order": 25,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "speaker_program_budget",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+}, {
+    "workflow_name": "speaker_program",
+    "load_method": "insert-load",
+    "run_order": 26,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "speaker_program_spend_pct",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+}, {
+    "workflow_name": "speaker_program",
+    "load_method": "insert-load",
+    "run_order": 27,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "spkr_prog_spend_yearly_avg",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "speaker_program",
+    "load_method": "insert-load",
+    "run_order": 28,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "spkr_prog_attendees",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "speaker_program",
+    "load_method": "insert-load",
+    "run_order": 29,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "speaker_program_count",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+}, {
+    "workflow_name": "call_plan",
+    "load_method": "insert-load",
+    "run_order": 30,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "sell_days",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+}, {
+    "workflow_name": "call_plan",
+    "load_method": "insert-load",
+    "run_order": 31,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "selling_days_goal",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+}, {
+    "workflow_name": "call_plan",
+    "load_method": "insert-load",
+    "run_order": 32,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "average_calls_per_day",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+}, {
+    "workflow_name": "call_plan",
+    "load_method": "insert-load",
+    "run_order": 33,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "daily_calls_avg_dstrct_var_pct",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+}, {
+    "workflow_name": "call_plan",
+    "load_method": "insert-load",
+    "run_order": 34,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "daily_calls_avg_region_var_pct",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+},
+
+{
+    "workflow_name": "call_plan",
+    "load_method": "insert-load",
+    "run_order": 35,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "daily_calls_avg_nation_var_pct",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+
+}, {
+    "workflow_name": "call_plan",
+    "load_method": "insert-load",
+    "run_order": 36,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "planned_calls_territory",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "call_plan",
+    "load_method": "insert-load",
+    "run_order": 37,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "delivered_calls_territory",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "call_plan",
+    "load_method": "insert-load",
+    "run_order": 38,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "weeks_left_call_plan",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "call_plan",
+    "load_method": "insert-load",
+    "run_order": 39,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "gaited_call_plan_achievement",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 40,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_PRODUCT_PORTFOLIO",
+        "dataset_id": "product_weight",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "overwrite",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 41,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_PRODUCT_PORTFOLIO",
+        "dataset_id": "target_payout_pct",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 42,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_PRODUCT_PORTFOLIO",
+        "dataset_id": "target_payout",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 43,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_PRODUCT_PORTFOLIO",
+        "dataset_id": "earnings",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 44,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_PRODUCT_PORTFOLIO",
+        "dataset_id": "eligibility",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 45,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_PRODUCT_PORTFOLIO",
+        "dataset_id": "total_payout",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 46,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_SALES_TREND",
+        "dataset_id": "dollar_sales",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "overwrite",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 47,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_SUMMIT_PEER_RANKING",
+        "dataset_id": "summit_peer",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "overwrite",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 48,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_ACTUAL_PAYOUTS",
+        "dataset_id": "SUMMIT_ELIGIBLE_AMT",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "overwrite",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 49,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_ACTUAL_PAYOUTS",
+        "dataset_id": "SUMMIT_INELIGIBLE_AMT",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 50,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_SUMMIT_SCORE",
+        "dataset_id": "time_in_field_pct",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "overwrite",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 51,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_SUMMIT_SCORE",
+        "dataset_id": "ic_score",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 52,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_SUMMIT_SCORE",
+        "dataset_id": "summit_rank",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 53,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_SUMMIT_SCORE",
+        "dataset_id": "total_rank",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}, {
+    "workflow_name": "ic",
+    "load_method": "insert-load",
+    "run_order": 54,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "IC_SUMMIT_SCORE",
+        "dataset_id": "adjustment",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "rddm",
+    "load_method": "insert-load",
+    "run_order": 55,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "isa_util_pct",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "rddm",
+    "load_method": "insert-load",
+    "run_order": 56,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "isa_util_avg_pct",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "rddm",
+    "load_method": "insert-load",
+    "run_order": 57,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "field_coaching_days_goal_count",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "rddm",
+    "load_method": "insert-load",
+    "run_order": 58,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "field_coaching_days_count",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "rddm",
+    "load_method": "insert-load",
+    "run_order": 59,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "field_coaching_days_avg",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "rddm",
+    "load_method": "insert-load",
+    "run_order": 60,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "selling_days_avg",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "rddm",
+    "load_method": "insert-load",
+    "run_order": 61,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "spkr_prog_spend_avg",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "rddm",
+    "load_method": "insert-load",
+    "run_order": 62,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "strategic_spend_avg",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+
+{
+    "workflow_name": "P2",
+    "load_method": "insert-load",
+    "run_order": 63,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "reach_email",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "P2",
+    "load_method": "insert-load",
+    "run_order": 64,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "delivered_emails_avg",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "P2",
+    "load_method": "insert-load",
+    "run_order": 65,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "call_frequency_avg",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "P2",
+    "load_method": "insert-load",
+    "run_order": 66,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "call_plan_reach_pct_segment",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "P2",
+    "load_method": "insert-load",
+    "run_order": 67,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "call_plan_reach_pct_overall",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},{
+    "workflow_name": "P2",
+    "load_method": "insert-load",
+    "run_order": 68,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "call_plan_reach_comparison_pct",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},{
+    "workflow_name": "P2",
+    "load_method": "insert-load",
+    "run_order": 69,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "nbrx_vol_nr",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},{
+    "workflow_name": "P2",
+    "load_method": "insert-load",
+    "run_order": 70,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "nbrx_vol_change_nr",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},{
+    "workflow_name": "P2",
+    "load_method": "insert-load",
+    "run_order": 71,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "nbrx_volume_share_nr",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "P2",
+    "load_method": "insert-load",
+    "run_order": 72,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "nbrx_volume_share_pct_nr",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "P2",
+    "load_method": "insert-load",
+    "run_order": 73,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "daa_mkt_vol_nr_proc",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "P2",
+    "load_method": "insert-load",
+    "run_order": 74,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "daa_mkt_vol_change_pct_nr_proc",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "P2",
+    "load_method": "insert-load",
+    "run_order": 75,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "spkr_prog_attendees_avg",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "P2",
+    "load_method": "insert-load",
+    "run_order": 76,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "engaged",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "P3",
+    "load_method": "insert-load",
+    "run_order": 77,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "followup_pct",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "P3",
+    "load_method": "insert-load",
+    "run_order": 78,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "spkr_prog_committed_avg",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "P3",
+    "load_method": "insert-load",
+    "run_order": 79,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "spkr_prog_remaining_avg",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+{
+    "workflow_name": "P3",
+    "load_method": "insert-load",
+    "run_order": 80,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "followup_avg_pct_proc",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+
+{
+    "workflow_name": "P3",
+    "load_method": "insert-load",
+    "run_order": 81,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "spkr_prog_budget_avg",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+
+{
+    "workflow_name": "P3",
+    "load_method": "insert-load",
+    "run_order": 82,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "nbrx_vol_rtl",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+
+{
+    "workflow_name": "P3",
+    "load_method": "insert-load",
+    "run_order": 83,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "CONTRIBUTION_PCT_RTL",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+
+{
+    "workflow_name": "P3",
+    "load_method": "insert-load",
+    "run_order": 84,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "contribution_pct_nr_proc",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+},
+
+{
+    "workflow_name": "P3",
+    "load_method": "insert-load",
+    "run_order": 85,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "CONTRIBUTION_PCT",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}
+,
+
+{
+    "workflow_name": "P3",
+    "load_method": "insert-load",
+    "run_order": 86,
+    "output_active_flag": "Y",
+    "params": {
+        "connection_method": "snowflake",
+        "database": "HCP_SMM_DEV",
+        "schema": "STG",
+        "table_name": "PRODUCT_METRICS_AGG",
+        "dataset_id": "spkr_prog_count_avg",
+        "partition_columns": "",
+        "audited_flag": "Y",
+        "mode": "append",
+        "truncate_flag": "true"
+    }
+}
+]
