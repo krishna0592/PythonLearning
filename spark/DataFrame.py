@@ -2,6 +2,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.types import *
 import pyspark.sql.functions as f
 from pyspark.sql.functions import udf
+#from pyspark.sql.avro.functions import from_avro, to_avro
 
 spark = SparkSession.builder.appName('PySparkLearning').getOrCreate()
 
@@ -92,8 +93,7 @@ def renamingFileInHDFS():
 def writeAsCSV():
     df = spark.sql("select * from acometl.data_monitoring_tool")
     df = df.select([f.col(c).cast("string") for c in df.columns])
-    df.limit(10).repartition(1).write.options(header="true", delimiter=",", inferSchema="true").mode('overwrite').csv(
-        "/user/mcietl/krishna/dev/dmt")
+    df.limit(10).repartition(1).write.options(header="true", delimiter=",", inferSchema="true").mode('overwrite').csv("/user/mcietl/krishna/dev/dmt")
 
 
 def readAsCSV():
@@ -188,3 +188,142 @@ def writeAsNestedJsonWithUDF():
 
 
 #================================================================================================================================================================================
+# Read and write as parquet files
+
+def writeAsParquet():
+    df = spark.sql("select * from acometl.data_monitoring_tool")
+    # write as parquet without any partitions
+    df.repartition(1).write.mode("overwrite").parquet("/user/mcietl/krishna/learning/parquet_write")
+    # write as parquet including partitions
+    df.repartition(1).write.paritionBy('project','click_date').mode("overwrite").parquet("/user/mcietl/krishna/learning/parquet_write")
+
+def readParquet():
+    # read entire parquet files
+    df = spark.read.parquet('/user/mcietl/krishna/learning/parquet_write')
+    df.printSchema()
+    df.show(truncate=False)
+    # read specific partition of a parquet file
+    df1 = spark.read.parquet('/user/mcietl/krishna/learning/parquet_write/project=clickstream')
+    df1.printSchema()
+    df1.show(truncate=False)
+
+
+#================================================================================================================================================================================
+# Read and write as Avro files
+
+#pyspark2 --packages org.apache.spark:spark-avro_2.12:2.4.4
+
+def writeAsAvro():
+    df = spark.sql("select * from acometl.data_monitoring_tool")
+    # write as avro without any partitions
+    df.write.format("avro").save("/user/mcietl/krishna/learning/avro-write")
+    # write as avro including partitions
+    df.repartition(1).write.paritionBy('project','click_date').format("avro").mode("overwrite").save("/user/mcietl/krishna/learning/avro-write")
+
+
+def readAvro():
+    # read entire avro files
+    df = spark.read.format("avro").load("/user/mcietl/krishna/learning/avro-write")
+    df.printSchema()
+    df.show(truncate=False)
+
+    # read specific partition of a avro file
+    df1 = spark.read.format("avro").load("/user/mcietl/krishna/learning/avro-write").filter(f.col("project") == "clickstream")
+    df1.printSchema()
+    df1.show(truncate=False)
+
+    # read using the avro schema file
+    jsonSchema = open("/user/mcietl/krishna/learning/avro-write.avsc", "r").read()
+        # 1. Decode the Avro data into a struct;
+        # 2. Filter by column 'favorite_color';
+        # 3. Encode the column 'name' in Avro format.
+    output = df \
+        .select(from_avro("value", jsonSchema).alias("user")) \
+        .where('user.favorite_color == "red"') \
+        .select(to_avro("user.name").alias("value"))
+    output.printSchema()
+    output.show(truncate=False)
+
+    # read avro files using schemas
+    df = spark.read.format("avro").option("avroSchema", jsonSchema.toString).load(
+        "/user/mcietl/krishna/learning/avro-write")
+
+
+#================================================================================================================================================================================
+# Filtering the dataframe
+
+def filterDataFrame():
+    df = spark.sql("select * from acometl.data_monitoring_tool")
+
+    # equal to condition
+    df.filter(f.col("project") == "clickstream").count()
+    df.filter("project == 'clickstream'").count()
+
+    # not equal to condition
+    df.filter(f.col("project") != "clickstream").count()
+    df.filter(~(df.project == "clickstream")).count()
+    df.filter("project <> 'clickstream'").count()
+
+    # multiple filter conditions
+    df.filter((df.project == "clickstream") & (df.click_date == "2021-12-01")) # and
+    df.filter((df.project == "clickstream") | (df.click_date == "2021-12-01")) # or
+
+    # filter list
+    list = ["clickstream", "datamart"]
+    df.filter(df.project.isin(list)).count() # in the list
+    df.filter(~df.project.isin(list)).count() # not in the list
+    df.filter(df.project.isin(list) == False) # not in the list
+
+    # starts with
+    df.filter(df.project.startswith("click")).count()
+
+    # ends with
+    df.filter(df.project.endswith("stream")).count()
+
+    # contains
+    df.filter(df.project.contains("click")).count()
+
+    # filter using other dataframe
+    data2 = [(1, 'clickstream'),(2, 'dataframe')]
+    df2 = spark.createDataFrame(data = data2, schema = ["id","project"])
+    df1 = df.filter(df2.project.like("%stream%")).count()
+    df1 = df.filter(df2.project.rlike("(?i)^*stream")).count() #regex - this condition checks case insensitive
+
+    # filter on array columns
+    data = [
+        (("James", "", "Smith"), ["Java", "Scala", "C++"], "OH", "M"),
+        (("Anna", "Rose", ""), ["Spark", "Java", "C++"], "NY", "F"),
+        (("Julia", "", "Williams"), ["CSharp", "VB"], "OH", "F"),
+        (("Maria", "Anne", "Jones"), ["CSharp", "VB"], "NY", "M"),
+        (("Jen", "Mary", "Brown"), ["CSharp", "VB"], "NY", "M"),
+        (("Mike", "Mary", "Williams"), ["Python", "VB"], "OH", "M")
+    ]
+    schema = StructType([
+        StructField('name', StructType([
+            StructField('firstname', StringType(), True),
+            StructField('middlename', StringType(), True),
+            StructField('lastname', StringType(), True)
+        ])),
+        StructField('languages', ArrayType(StringType()), True),
+        StructField('state', StringType(), True),
+        StructField('gender', StringType(), True)
+    ])
+    df = spark.createDataFrame(data=data, schema=schema)
+    df.filter(f.array_contains(df.languages, "Java")).show(truncate=False)
+
+    # filtering on nested structure
+    df.filter(df.name.lastname == "Williams").show(truncate=False)
+
+
+    # filtering on map column
+    df.select(df.name.getItem("firstname").alias("firstname")).filter("firstname == 'James'").show(truncate=False)
+
+
+#================================================================================================================================================================================
+# dataframe handling map column in runtime
+
+#================================================================================================================================================================================
+# dataframe handling array column in runtime
+
+#================================================================================================================================================================================
+# dataframe handling struct column in runtime
